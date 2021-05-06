@@ -16,6 +16,14 @@ public abstract class Animal<T> implements Being<T> {
 
     public abstract void makeSound();
 
+    @Override
+    public boolean equals(Object animal){
+        if (this.getClass() == animal.getClass()){
+            return  this.getGender() == ((Animal)animal).getGender();
+        }
+        return false;
+    }
+
     protected static Gender randomGender()
     {
         return (Math.random() < 0.5) ? Gender.FEMALE : Gender.MALE;
