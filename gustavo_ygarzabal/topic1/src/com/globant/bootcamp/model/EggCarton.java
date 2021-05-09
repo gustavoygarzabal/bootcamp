@@ -10,7 +10,6 @@ public class EggCarton extends Product{
     private final int column = 5;
     private final int line = 6;
 
-
     private EggCarton(int capacity) {
         super(capacity);
         ArrayList<Egg> carton = new ArrayList<Egg>();
@@ -80,7 +79,5 @@ public class EggCarton extends Product{
         }
         System.out.println("===========");
     }
-
-
 
 }

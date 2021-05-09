@@ -72,9 +72,6 @@ public class Farm extends Building {
         this.addAllowedAnimal(new Duck(Gender.FEMALE));
         this.addAllowedAnimal(new Duck(Gender.MALE));
 
-
-
-
         //HenHouse creating
         HenHouse henHouse = new HenHouse(40);
         for (int i = 0 ; i < 40*0.7 -1; i++) {
@@ -87,7 +84,6 @@ public class Farm extends Building {
         }
         henHouse.addAnimal(new Chicken(Gender.FEMALE, "RED"));
         //Fisnish the creation of HenHouse
-
 
         ArrayList<Building> buildings= new ArrayList<Building>();
         buildings.add(henHouse);
@@ -102,7 +98,6 @@ public class Farm extends Building {
         Dog doggo = new Dog(Gender.MALE);
         Cat cat = new Cat(Gender.FEMALE);
 
-
         animals[0] = gallina;
         animals[1] = pato;
         animals[2] = doggo;
@@ -111,8 +106,6 @@ public class Farm extends Building {
         for(Animal animal: animals) {
             farm.getAnimals().add(animal);
         }
-
-
     }
 
 
