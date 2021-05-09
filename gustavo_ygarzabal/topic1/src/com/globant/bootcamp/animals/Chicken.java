@@ -5,9 +5,11 @@ import com.globant.bootcamp.abstracts.Bird;
 
 import java.util.ArrayList;
 
+//TODO implement that a hen can put any number of eggs
+//TODO implement another way of how eggs colors are use
+
 public class Chicken extends Bird {
     private String eggColor;
-
     public Chicken(Gender gender) {
         super(gender);
     }
@@ -26,17 +28,14 @@ public class Chicken extends Bird {
 
     @Override
     public void breathe() {
-
     }
 
     @Override
     public void eat() {
-
     }
 
     @Override
     public void sleep() {
-
     }
 
     @Override
@@ -50,11 +49,9 @@ public class Chicken extends Bird {
     }
 
     public ArrayList<Egg> getEggs(){
-        Egg egg1 = new Egg(this);
-        Egg egg2 = new Egg(this);
         ArrayList<Egg> eggs=  new ArrayList<Egg>();
-        eggs.add(egg1);
-        eggs.add(egg2);
+        eggs.add(new Egg(this));
+        eggs.add(new Egg(this));
         return eggs;
     }
 }

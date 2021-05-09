@@ -11,7 +11,7 @@ public class EggCarton extends Product{
     private final int line = 6;
 
 
-    public EggCarton(int capacity) {
+    private EggCarton(int capacity) {
         super(capacity);
         ArrayList<Egg> carton = new ArrayList<Egg>();
         for(int i=0; i<capacity; i++){
@@ -32,8 +32,6 @@ public class EggCarton extends Product{
             return true;
         }
         return false;
-
-
     }
 
     public int findIndexOfFreeSpace(){
@@ -52,6 +50,10 @@ public class EggCarton extends Product{
         return eggColor;
     }
 
+    public boolean isOfColor(Egg egg){
+        return this.getEggColor().equals(egg.getEggColor());
+    }
+
     public void setEggColor(String eggColor) {
         this.eggColor = eggColor;
     }
@@ -63,38 +65,16 @@ public class EggCarton extends Product{
 
     @Override
     public int getCapacity() {
-        return 0;
-    }
-
-    public void printProductDescription() {
-        int count = 0;
-        int countColor = 0;
-        for(int i=0; i < this.getEggs().size(); i++){
-            if(this.getEggs().get(i)!= null){
-                count++;
-                if(this.getEggs().get(i).getEggColor().equals(this.getEggColor())){
-                    countColor++;
-                }
-            }
-        }
-
-        System.out.println("This is a Egg Carton with a capacity of : " + this.getEggs().size());
-        System.out.println("This is a Egg Carton of color: " + this.eggColor);
-        System.out.println(("This Egg Carton have "+count+" eggs"));
-        System.out.println(("This Egg Carton have "+countColor+" "+ this.eggColor+" eggs"));
-        System.out.println(("----------------------------------"));
+        return line*column;
     }
 
     @Override
     public void printProduct() {
+        Egg currentEgg;
         for(int i=0; i<this.line; i++) {
             for(int j=0; j<this.column; j++){
-                Egg currentEgg = this.getEggs().get((i*this.column)+j);
-                if(currentEgg!=null){
-                    System.out.print(currentEgg.toString());
-                } else {
-                    System.out.print("(G)");
-                }
+                currentEgg = this.getEggs().get((i*this.column)+j);
+                System.out.print((currentEgg!=null)? currentEgg.toString() : "(G)");
             }
             System.out.println();
         }

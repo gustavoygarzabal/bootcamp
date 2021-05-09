@@ -6,6 +6,7 @@ abstract public class Product {
     public Product(int capacity){
         this.setCapacity(capacity);
     }
+
     public abstract boolean isFull();
 
     public int getCapacity() {

@@ -3,11 +3,11 @@ package com.globant.bootcamp.model;
 import com.globant.bootcamp.abstracts.Human;
 import com.globant.bootcamp.enums.Gender;
 
-public class Persona extends Human {
+public class Person extends Human {
     private String name;
 
 
-    public Persona(Gender gender, String name) {
+    public Person(Gender gender, String name) {
         super(gender);
         this.setName(name);
     }
@@ -20,7 +20,7 @@ public class Persona extends Human {
         this.name = name;
     }
 
-    public Persona(Gender gender) {
+    public Person(Gender gender) {
         super(gender);
     }
 

@@ -5,13 +5,11 @@ import com.globant.bootcamp.abstracts.Animal;
 import java.util.Objects;
 
 public class Egg {
-    public boolean isFertilze = false;
-
-//    private Animal baby;
+    private boolean isFertilze = false;
     private String eggColor;
 
+
     public Egg(Animal animal){
-//        this.baby = animal;
         this.setEggColor(((Chicken)animal).getEggColor());
     }
 
@@ -36,15 +34,8 @@ public class Egg {
         return Objects.hash(isFertilze, eggColor);
     }
 
+    @Override
     public String toString(){
-        if (getEggColor().equals("RED")){
-            return "(D)";
-        }
-        if (getEggColor().equals("WHITE")){
-            return "(O)";
-        }
-
-        //In this case it will never go for this line
-        return "(X)";
+        return (getEggColor().equals("RED"))? "(D)" : "(O)";
     }
 }

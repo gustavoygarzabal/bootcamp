@@ -8,14 +8,37 @@ abstract public class Building {
     private int capacity=0;
     private ArrayList<Animal> allowedAnimals = new ArrayList<Animal>();
     private ArrayList<Animal> animals = new ArrayList<Animal>();
+    private ArrayList<Product> products = new ArrayList<Product>();
 
-   public void addAnimal(Animal animal){
-       if(this.getAnimals().size() < this.getCapacity() && this.getAllowedAnimals().contains(animal)){
+   public boolean addAnimal(Animal animal){
+       if(!isFull() && isAllowed(animal)){
            this.getAnimals().add(animal);
+           return true;
        }
+       return false;
    }
 
-   public void removeAnimal(Animal animal){
+   public boolean isAllowed(Animal animal){
+       return this.getAllowedAnimals().contains(animal);
+   }
+
+   public boolean isFull(){
+       return !(this.getAnimals().size() < this.getCapacity());
+   }
+
+   public void cleanProducts() {
+       this.setProducts(new ArrayList<Product>());
+   }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
+    }
+
+    public void removeAnimal(Animal animal){
        this.getAnimals().remove(animal);
    }
 
@@ -25,10 +48,6 @@ abstract public class Building {
 
     public void setAnimals(ArrayList<Animal> animals) {
         this.animals = animals;
-    }
-
-    public Building(int capacity) {
-        this.capacity = capacity;
     }
 
     public int getCapacity() {
@@ -43,7 +62,6 @@ abstract public class Building {
         this.allowedAnimals.add(animal);
     }
 
-
     public void removeAllowedAnimal(Animal animal){
         this.getAllowedAnimals().remove(animal);
     }
@@ -56,5 +74,5 @@ abstract public class Building {
         this.allowedAnimals = allowedAnimals;
     }
 
-    public abstract ArrayList<Product> work();
+    public abstract void work();
 }
