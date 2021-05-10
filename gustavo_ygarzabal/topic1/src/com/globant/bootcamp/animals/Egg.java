@@ -1,23 +1,24 @@
 package com.globant.bootcamp.animals;
 
 import com.globant.bootcamp.abstracts.Animal;
+import com.globant.bootcamp.enums.EggColor;
 
 import java.util.Objects;
 
 public class Egg {
     private boolean isFertilze = false;
-    private String eggColor;
+    private EggColor eggColor;
 
 
     public Egg(Animal animal){
         this.setEggColor(((Chicken)animal).getEggColor());
     }
 
-    public String getEggColor() {
+    public EggColor getEggColor() {
         return eggColor;
     }
 
-    public void setEggColor(String eggColor) {
+    public void setEggColor(EggColor eggColor) {
         this.eggColor = eggColor;
     }
 
@@ -36,6 +37,6 @@ public class Egg {
 
     @Override
     public String toString(){
-        return (getEggColor().equals("RED"))? "(D)" : "(O)";
+        return (getEggColor().equals(EggColor.RED))? "(D)" : "(O)";
     }
 }

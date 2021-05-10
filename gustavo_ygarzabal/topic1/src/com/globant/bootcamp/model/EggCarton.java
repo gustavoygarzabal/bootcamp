@@ -1,12 +1,13 @@
 package com.globant.bootcamp.model;
 
 import com.globant.bootcamp.animals.Egg;
+import com.globant.bootcamp.enums.EggColor;
 
 import java.util.ArrayList;
 
 public class EggCarton extends Product{
     private ArrayList<Egg> eggs;
-    private String eggColor;
+    private EggColor eggColor;
     private final int column = 5;
     private final int line = 6;
 
@@ -19,7 +20,7 @@ public class EggCarton extends Product{
         this.setEggs(carton);
     }
 
-    public EggCarton(int capacity, String eggColor) {
+    public EggCarton(int capacity, EggColor eggColor) {
         this(capacity);
         this.setEggColor(eggColor);
     }
@@ -45,7 +46,7 @@ public class EggCarton extends Product{
         this.eggs = eggs;
     }
 
-    public String getEggColor() {
+    public EggColor getEggColor() {
         return eggColor;
     }
 
@@ -53,7 +54,7 @@ public class EggCarton extends Product{
         return this.getEggColor().equals(egg.getEggColor());
     }
 
-    public void setEggColor(String eggColor) {
+    public void setEggColor(EggColor eggColor) {
         this.eggColor = eggColor;
     }
 

@@ -5,6 +5,7 @@ import com.globant.bootcamp.animals.Cat;
 import com.globant.bootcamp.animals.Chicken;
 import com.globant.bootcamp.animals.Dog;
 import com.globant.bootcamp.animals.Duck;
+import com.globant.bootcamp.enums.EggColor;
 import com.globant.bootcamp.enums.Gender;
 
 import java.util.ArrayList;
@@ -74,15 +75,12 @@ public class Farm extends Building {
 
         //HenHouse creating
         HenHouse henHouse = new HenHouse(40);
-        for (int i = 0 ; i < 40*0.7 -1; i++) {
-            henHouse.addAnimal(new Chicken(Gender.FEMALE, "RED"));
+        for (int i = 0 ; i < 40*0.7; i++) {
+            henHouse.addAnimal(HenFactory.getInstance(EggColor.RED));
         }
-        henHouse.addAnimal(new Chicken(Gender.FEMALE, "WHITE"));
-        henHouse.addAnimal(new Chicken(Gender.FEMALE, "WHITE"));
-        for (int i = 0 ; i < 40*0.3 -2; i++) {
-            henHouse.addAnimal(new Chicken(Gender.FEMALE, "WHITE"));
+        for (int i = 0 ; i < 40*0.3; i++) {
+            henHouse.addAnimal(HenFactory.getInstance(EggColor.WHITE));
         }
-        henHouse.addAnimal(new Chicken(Gender.FEMALE, "RED"));
         //Fisnish the creation of HenHouse
 
         ArrayList<Building> buildings= new ArrayList<Building>();

@@ -1,7 +1,9 @@
 package com.globant.bootcamp.animals;
 
+import com.globant.bootcamp.enums.EggColor;
 import com.globant.bootcamp.enums.Gender;
 import com.globant.bootcamp.abstracts.Bird;
+import com.globant.bootcamp.model.EggFactory;
 
 import java.util.ArrayList;
 
@@ -9,20 +11,20 @@ import java.util.ArrayList;
 //TODO implement another way of how eggs colors are use
 
 public class Chicken extends Bird {
-    private String eggColor;
+    private EggColor eggColor;
     public Chicken(Gender gender) {
         super(gender);
     }
 
-    public Chicken(Gender gender, String eggColor) {
+    public Chicken(Gender gender, EggColor eggColor) {
         super(gender);
         setEggColor(eggColor);
     }
-    public String getEggColor() {
+    public EggColor getEggColor() {
         return eggColor;
     }
 
-    public void setEggColor(String eggColor) {
+    public void setEggColor(EggColor eggColor) {
         this.eggColor = eggColor;
     }
 
@@ -48,10 +50,10 @@ public class Chicken extends Bird {
         System.out.println("Pio Pio");
     }
 
-    public ArrayList<Egg> getEggs(){
+    public ArrayList<Egg> getLaidEggs(){
         ArrayList<Egg> eggs=  new ArrayList<Egg>();
-        eggs.add(new Egg(this));
-        eggs.add(new Egg(this));
+        eggs.add(EggFactory.getInstance(this.eggColor));
+        eggs.add(EggFactory.getInstance(this.eggColor));
         return eggs;
     }
 }

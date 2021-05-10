@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class HenHouse extends Building{
 
+    private ArrayList<EggCarton> products;
+
     public HenHouse() {
         super();
         this.addAllowedAnimal(new Chicken(Gender.FEMALE));
@@ -27,7 +29,7 @@ public class HenHouse extends Building{
     }
 
     public ArrayList<Egg> collectEggsFromAChicken(Chicken chicken){
-        return chicken.getEggs();
+        return chicken.getLaidEggs();
     }
 
     public void addEggToCarton(ArrayList<Egg> eggs){
