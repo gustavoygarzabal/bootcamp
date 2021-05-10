@@ -1,4 +1,4 @@
-package com.globant.bootcamp.model;
+package com.globant.bootcamp.objectsPools;
 
 import com.globant.bootcamp.animals.Chicken;
 import com.globant.bootcamp.enums.EggColor;

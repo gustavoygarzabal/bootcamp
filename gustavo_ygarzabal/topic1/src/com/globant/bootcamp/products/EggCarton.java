@@ -1,11 +1,12 @@
-package com.globant.bootcamp.model;
+package com.globant.bootcamp.products;
 
+import com.globant.bootcamp.abstracts.Product;
 import com.globant.bootcamp.animals.Egg;
 import com.globant.bootcamp.enums.EggColor;
 
 import java.util.ArrayList;
 
-public class EggCarton extends Product{
+public class EggCarton extends Product {
     private ArrayList<Egg> eggs;
     private EggColor eggColor;
     private final int column = 5;

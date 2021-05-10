@@ -3,7 +3,7 @@ package com.globant.bootcamp.animals;
 import com.globant.bootcamp.enums.EggColor;
 import com.globant.bootcamp.enums.Gender;
 import com.globant.bootcamp.abstracts.Bird;
-import com.globant.bootcamp.model.EggFactory;
+import com.globant.bootcamp.objectsPools.EggFactory;
 
 import java.util.ArrayList;
 

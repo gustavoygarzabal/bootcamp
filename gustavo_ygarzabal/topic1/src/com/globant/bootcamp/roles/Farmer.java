@@ -1,4 +1,4 @@
-package com.globant.bootcamp.model;
+package com.globant.bootcamp.roles;
 
 import com.globant.bootcamp.enums.Gender;
 
