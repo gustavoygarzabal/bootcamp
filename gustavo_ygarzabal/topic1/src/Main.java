@@ -1,10 +1,9 @@
 import com.globant.bootcamp.abstracts.Animal;
-import com.globant.bootcamp.animals.*;
+import com.globant.bootcamp.buildings.Farm;
 import com.globant.bootcamp.enums.Gender;
-import com.globant.bootcamp.model.*;
+import com.globant.bootcamp.roles.*;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {

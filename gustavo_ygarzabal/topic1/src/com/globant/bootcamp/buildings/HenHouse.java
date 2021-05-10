@@ -1,12 +1,15 @@
-package com.globant.bootcamp.model;
+package com.globant.bootcamp.buildings;
 
+import com.globant.bootcamp.abstracts.Building;
+import com.globant.bootcamp.abstracts.Product;
 import com.globant.bootcamp.animals.Chicken;
 import com.globant.bootcamp.animals.Egg;
 import com.globant.bootcamp.enums.Gender;
+import com.globant.bootcamp.products.EggCarton;
 
 import java.util.ArrayList;
 
-public class HenHouse extends Building{
+public class HenHouse extends Building {
 
     private ArrayList<EggCarton> products;
 

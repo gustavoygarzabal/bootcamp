@@ -1,12 +1,16 @@
-package com.globant.bootcamp.model;
+package com.globant.bootcamp.buildings;
 
 import com.globant.bootcamp.abstracts.Animal;
+import com.globant.bootcamp.abstracts.Building;
+import com.globant.bootcamp.abstracts.Product;
 import com.globant.bootcamp.animals.Cat;
 import com.globant.bootcamp.animals.Chicken;
 import com.globant.bootcamp.animals.Dog;
 import com.globant.bootcamp.animals.Duck;
 import com.globant.bootcamp.enums.EggColor;
 import com.globant.bootcamp.enums.Gender;
+import com.globant.bootcamp.roles.Farmer;
+import com.globant.bootcamp.objectsPools.HenFactory;
 
 import java.util.ArrayList;
 

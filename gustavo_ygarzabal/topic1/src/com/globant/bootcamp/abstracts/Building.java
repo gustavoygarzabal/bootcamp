@@ -1,6 +1,4 @@
-package com.globant.bootcamp.model;
-
-import com.globant.bootcamp.abstracts.Animal;
+package com.globant.bootcamp.abstracts;
 
 import java.util.ArrayList;
 
