@@ -5,31 +5,24 @@ import com.globant.bootcamp.enums.EggColor;
 
 import java.util.Objects;
 
-public class Egg {
-    public final EggColor eggColor;
+public class EggFertilized extends Egg{
+    private boolean isFertilze = true;
 
-    public Egg(Animal animal){
-        this.eggColor=(((Chicken)animal).getEggColor());
-    }
-    public Egg(EggColor eggColor){
-        this.eggColor=eggColor;
-    }
-
-    public EggColor getEggColor() {
-        return eggColor;
+    public EggFertilized(Animal animal) {
+        super(animal);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Egg egg = (Egg) o;
-        return eggColor.equals(egg.eggColor);
+        EggFertilized egg = (EggFertilized) o;
+        return isFertilze == egg.isFertilze && eggColor.equals(egg.eggColor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eggColor);
+        return Objects.hash(isFertilze, eggColor);
     }
 
     @Override

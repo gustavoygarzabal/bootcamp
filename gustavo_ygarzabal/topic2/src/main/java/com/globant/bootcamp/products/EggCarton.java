@@ -9,10 +9,10 @@ import java.util.ArrayList;
 public class EggCarton extends Product {
     private ArrayList<Egg> eggs;
     private EggColor eggColor;
-    private final int column = 5;
-    private final int line = 6;
+    private int column;
+    private int line;
 
-    private EggCarton(int capacity) {
+    public EggCarton(int capacity) {
         super(capacity);
         ArrayList<Egg> carton = new ArrayList<Egg>();
         for(int i=0; i<capacity; i++){
@@ -33,6 +33,22 @@ public class EggCarton extends Product {
             return true;
         }
         return false;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public int getLine() {
+        return line;
+    }
+
+    public void setLine(int line) {
+        this.line = line;
     }
 
     public int findIndexOfFreeSpace(){
