@@ -1,27 +1,13 @@
 package com.globant.bootcamp.buildings;
 
-import com.globant.bootcamp.abstracts.Building;
 import com.globant.bootcamp.abstracts.Product;
 import com.globant.bootcamp.animals.Chicken;
 import com.globant.bootcamp.animals.Egg;
-import com.globant.bootcamp.enums.Gender;
 import com.globant.bootcamp.products.EggCarton;
 
 import java.util.ArrayList;
 
-public class HenHouse extends Building {
-
-    private ArrayList<EggCarton> products;
-
-    public HenHouse() {
-        super();
-        this.addAllowedAnimal(new Chicken(Gender.FEMALE));
-    }
-
-    public HenHouse(int capacity) {
-        this();
-        this.setCapacity(capacity);
-    }
+public class HenHouse extends AnimalBuilding {
 
     @Override
     public void work() {
@@ -56,5 +42,7 @@ public class HenHouse extends Building {
         eggCartons.add(new EggCarton(30,egg.getEggColor()));
         return cartonIndex;
     }
+
+
 
 }

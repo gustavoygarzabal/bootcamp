@@ -1,15 +1,18 @@
+package com.globant.bootcamp.buildings;
+
 import com.globant.bootcamp.abstracts.Product;
 
 import java.util.ArrayList;
 
 public abstract class AnimalBuilding extends AnimalManager implements Building{
-    private ArrayList<Product> products;
+    private ArrayList<Product> products = new ArrayList<>();
 
-
+    @Override
     public ArrayList<Product> getProducts() {
         return products;
     }
 
+    @Override
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }

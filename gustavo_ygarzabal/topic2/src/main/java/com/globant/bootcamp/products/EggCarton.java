@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class EggCarton extends Product {
     private ArrayList<Egg> eggs;
     private EggColor eggColor;
-    private int column;
-    private int line;
+    private int column=5;
+    private int line=6;
 
     public EggCarton(int capacity) {
         super(capacity);

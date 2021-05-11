@@ -1,3 +1,5 @@
+package com.globant.bootcamp.AnimalsFactory;
+
 import com.globant.bootcamp.abstracts.Animal;
 import com.globant.bootcamp.enums.Gender;
 

@@ -1,3 +1,5 @@
+package com.globant.bootcamp.productFactory;
+
 import com.globant.bootcamp.animals.Egg;
 import com.globant.bootcamp.enums.EggColor;
 
