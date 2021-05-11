@@ -9,7 +9,6 @@ public class Farm extends  AnimalBuilding{
     private static Farm farm;
 
     private Farm() {
-
     }
 
     public ArrayList<Building> getBuildings() {
