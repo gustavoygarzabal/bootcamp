@@ -1,6 +1,9 @@
 package com.globant.bootcamp.buildings;
 
-import com.globant.bootcamp.abstracts.Product;
+import com.globant.bootcamp.enums.EggCartonSize;
+import com.globant.bootcamp.productFactory.EggCartonCreator;
+import com.globant.bootcamp.productFactory.EggCreator;
+import com.globant.bootcamp.productFactory.Product;
 import com.globant.bootcamp.animals.Chicken;
 import com.globant.bootcamp.animals.Egg;
 import com.globant.bootcamp.products.EggCarton;
@@ -18,7 +21,8 @@ public class HenHouse extends AnimalBuilding {
     }
 
     public ArrayList<Egg> collectEggsFromAChicken(Chicken chicken){
-        return chicken.getLaidEggs();
+        EggCreator eggCreator = new EggCreator();
+        return eggCreator.getEgg(chicken.getEggColor(), 2);
     }
 
     public void addEggToCarton(ArrayList<Egg> eggs){
@@ -39,7 +43,8 @@ public class HenHouse extends AnimalBuilding {
             }
             cartonIndex++;
         }
-        eggCartons.add(new EggCarton(30,egg.getEggColor()));
+        EggCartonCreator eggCartonCreator = new EggCartonCreator();
+        eggCartons.add(eggCartonCreator.getEggCarton(EggCartonSize.MAPLE, egg.getEggColor()));
         return cartonIndex;
     }
 

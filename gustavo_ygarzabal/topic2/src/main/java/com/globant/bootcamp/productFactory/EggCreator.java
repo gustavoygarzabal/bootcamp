@@ -6,7 +6,7 @@ import com.globant.bootcamp.enums.EggColor;
 import java.util.ArrayList;
 
 public class EggCreator {
-    private final Egg[] eggPool = {
+    private static final Egg[] eggPool = {
             new Egg(EggColor.RED),
             new Egg(EggColor.WHITE)
     };

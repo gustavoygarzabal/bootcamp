@@ -3,7 +3,7 @@ package com.globant.bootcamp.animals;
 import com.globant.bootcamp.enums.EggColor;
 import com.globant.bootcamp.enums.Gender;
 import com.globant.bootcamp.abstracts.Bird;
-import com.globant.bootcamp.objectsPools.EggFactory;
+import com.globant.bootcamp.productFactory.EggCreator;
 
 import java.util.ArrayList;
 
@@ -51,9 +51,7 @@ public class Chicken extends Bird {
     }
 
     public ArrayList<Egg> getLaidEggs(){
-        ArrayList<Egg> eggs=  new ArrayList<Egg>();
-        eggs.add(EggFactory.getInstance(this.eggColor));
-        eggs.add(EggFactory.getInstance(this.eggColor));
-        return eggs;
+        EggCreator eggCreator = new EggCreator();
+        return eggCreator.getEgg(this.eggColor, 2);
     }
 }

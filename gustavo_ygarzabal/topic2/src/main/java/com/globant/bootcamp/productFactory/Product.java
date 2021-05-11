@@ -1,4 +1,4 @@
-package com.globant.bootcamp.abstracts;
+package com.globant.bootcamp.productFactory;
 
 abstract public class Product {
     private int capacity;

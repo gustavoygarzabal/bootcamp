@@ -1,5 +1,7 @@
 package com.globant.bootcamp.abstracts;
 
+import com.globant.bootcamp.productFactory.Product;
+
 import java.util.ArrayList;
 
 abstract public class Building {
