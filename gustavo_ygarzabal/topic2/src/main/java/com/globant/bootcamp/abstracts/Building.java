@@ -1,6 +1,6 @@
 package com.globant.bootcamp.abstracts;
 
-import com.globant.bootcamp.productFactory.Product;
+import com.globant.bootcamp.products.Product;
 
 import java.util.ArrayList;
 

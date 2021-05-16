@@ -1,8 +1,9 @@
 package com.globant.bootcamp.buildings;
 
-import com.globant.bootcamp.productFactory.Product;
+import com.globant.bootcamp.products.Product;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class AnimalBuilding extends AnimalManager implements Building{
     private ArrayList<Product> products = new ArrayList<>();
@@ -19,8 +20,12 @@ public abstract class AnimalBuilding extends AnimalManager implements Building{
 
     //TODO not implemented yet
     @Override
-    public void showProducts() {
-        products.forEach(Product::printProduct);
+    public String showProducts() {
+        String result ="";
+        for (Product product : products) {
+            result = result.concat(product.toString());
+        }
+        return result;
     }
 
     @Override

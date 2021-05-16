@@ -1,5 +1,9 @@
 package com.globant.bootcamp.buildings;
 
-public abstract class BuildingCreator {
+//TODO should i do this a interface?
+//TODO all this methods should be static?
+
+public interface BuildingCreator {
+
     public abstract Building createBuilding(int capacity);
 }

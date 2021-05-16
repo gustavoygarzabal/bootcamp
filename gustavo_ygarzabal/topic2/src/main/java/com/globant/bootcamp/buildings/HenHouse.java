@@ -3,7 +3,7 @@ package com.globant.bootcamp.buildings;
 import com.globant.bootcamp.enums.EggCartonSize;
 import com.globant.bootcamp.productFactory.EggCartonCreator;
 import com.globant.bootcamp.productFactory.EggCreator;
-import com.globant.bootcamp.productFactory.Product;
+import com.globant.bootcamp.products.Product;
 import com.globant.bootcamp.animals.Chicken;
 import com.globant.bootcamp.animals.Egg;
 import com.globant.bootcamp.products.EggCarton;

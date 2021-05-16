@@ -1,4 +1,4 @@
-package com.globant.bootcamp.AnimalsFactory;
+package com.globant.bootcamp.animalsFactory;
 
 import com.globant.bootcamp.abstracts.Animal;
 import com.globant.bootcamp.animals.Chicken;
@@ -7,12 +7,12 @@ import com.globant.bootcamp.enums.Gender;
 
 import java.util.ArrayList;
 
-public class ChickenCreator extends AnimalCreator{
+public class ChickenCreator implements AnimalCreator{
     private static final Chicken[] henPool= {   new Chicken(Gender.FEMALE, EggColor.RED),
                                                 new Chicken(Gender.FEMALE, EggColor.WHITE)};
 
     @Override
-    public Animal createAnimal(Gender gender) {
+    public Chicken createAnimal(Gender gender) {
         return new Chicken(gender, randomEggColor());
     }
 

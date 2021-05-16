@@ -1,8 +1,8 @@
-package com.globant.bootcamp.AnimalsFactory;
+package com.globant.bootcamp.animalsFactory;
 
 import com.globant.bootcamp.abstracts.Animal;
 import com.globant.bootcamp.enums.Gender;
 
-public abstract class AnimalCreator {
+public interface AnimalCreator {
     public abstract Animal createAnimal(Gender gender);
 }

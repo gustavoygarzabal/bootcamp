@@ -1,30 +1,21 @@
 import com.globant.bootcamp.abstracts.Animal;
-import com.globant.bootcamp.buildings.Building;
-import com.globant.bootcamp.buildings.Farm;
-import com.globant.bootcamp.buildings.HenHouse;
-import com.globant.bootcamp.buildings.HenHouseCreator;
-import com.globant.bootcamp.enums.Gender;
-import com.globant.bootcamp.roles.*;
+import com.globant.bootcamp.buildings.*;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 
 public class Main {
+    static Logger logger = Logger.getLogger(Main.class.getName());
+
     public static void main(String[] args) {
-        Farm farm = Farm.getInstance();
+        Farm farm = new FarmCreator().createBuilding(5);
+        System.out.println(farm.getCapacity());
+        logger.debug("Getting the farm instance");
 
-       //Method already implemented and use, i mantain it. It could be deleted
-        Animal[] animals = new Animal[farm.getAnimals().size()];
-        farm.getAnimals().toArray(animals);
-        singAnimals(animals);
-
-
-        HenHouse henHouse = (HenHouse) new HenHouseCreator().createBuilding((int)(40*0.7),(int)(40*0.3));
-        ArrayList<Building> buildings = new ArrayList<>();
-        buildings.add(henHouse);
-
-        farm.setBuildings(buildings);
+        farm.addBuilding(new HenHouseCreator().createBuilding((int)(40*0.7),(int)(40*0.3)));
         farm.work();
-        farm.getProducts().forEach(product -> product.printProduct());
+        logger.info(farm.showProducts());
+
     }
 
 

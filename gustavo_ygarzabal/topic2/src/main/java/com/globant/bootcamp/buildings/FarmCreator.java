@@ -1,8 +1,10 @@
 package com.globant.bootcamp.buildings;
 
-public class FarmCreator extends BuildingCreator{
+public class FarmCreator implements BuildingCreator{
     @Override
-    public Building createBuilding(int capacity) {
-        return Farm.getInstance();
+    public Farm createBuilding(int capacity) {
+        Farm farm = Farm.getInstance();
+        farm.setCapacity(capacity);
+        return farm;
     }
 }

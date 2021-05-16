@@ -1,19 +1,19 @@
 package com.globant.bootcamp.products;
 
-import com.globant.bootcamp.productFactory.Product;
 import com.globant.bootcamp.animals.Egg;
 import com.globant.bootcamp.enums.EggColor;
 
 import java.util.ArrayList;
 
-public class EggCarton extends Product {
+public class EggCarton implements Product {
+    private int capacity;
     private ArrayList<Egg> eggs;
     private EggColor eggColor;
     private int column;
     private int line;
 
     public EggCarton(int capacity) {
-        super(capacity);
+        this.setCapacity(capacity);
         ArrayList<Egg> carton = new ArrayList<Egg>();
         for(int i=0; i<capacity; i++){
             carton.add(null);
@@ -86,6 +86,13 @@ public class EggCarton extends Product {
     }
 
     @Override
+    public void setCapacity(int capacity) {
+        this.capacity= capacity;
+    }
+
+
+    //TODO this method should be deprecated due it's replaced by toString()
+    @Override
     public void printProduct() {
         Egg currentEgg;
         for(int i=0; i<this.line; i++) {
@@ -98,4 +105,18 @@ public class EggCarton extends Product {
         System.out.println("===========");
     }
 
+    @Override
+    public String toString() {
+        String result="\n==== "+this.getEggColor()+" ====\n";
+        Egg currentEgg;
+        for(int i=0; i<this.line; i++) {
+            for(int j=0; j<this.column; j++){
+                currentEgg = this.getEggs().get((i*this.column)+j);
+                result = result.concat((currentEgg!=null)? currentEgg.toString() : "(G)");
+            }
+            result = result.concat("\n");
+        }
+        result= result.concat("===============");
+        return result;
+    }
 }

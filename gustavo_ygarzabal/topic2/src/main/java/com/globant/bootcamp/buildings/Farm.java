@@ -20,6 +20,10 @@ public class Farm extends AnimalBuilding {
         this.buildings = buildings;
     }
 
+    public void addBuilding(Building building) {
+        this.buildings.add(building);
+    }
+
     public Farmer getFarmer() {
         return farmer;
     }

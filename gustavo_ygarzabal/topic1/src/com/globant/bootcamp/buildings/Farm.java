@@ -19,6 +19,10 @@ public class Farm extends Building {
     private Farmer farmer;
     private static Farm farm;
 
+    private Farm(){
+        super();
+    }
+
     public void addProduct(Product product){
         this.getProducts().add(product);
     }
