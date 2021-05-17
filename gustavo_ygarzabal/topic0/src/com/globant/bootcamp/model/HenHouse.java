@@ -60,22 +60,6 @@ public class HenHouse extends Building{
         return cartonIndex;
     }
 
-    public int getIndexOfLastNotFullCartonOfType2(Egg egg){
-        String eggColor = egg.getEggColor();
-        ArrayList<Product> cartons = this.getEggCartons();
-        int cartonIndex = 0;
-        while(cartonIndex< cartons.size()){
-            if (!cartons.get(cartonIndex).isFull()){
-                if(((EggCarton)cartons.get(cartonIndex)).getEggColor().equals(eggColor)){
-                    return cartonIndex;
-                }
-            }
-            cartonIndex++;
-        }
-        this.getEggCartons().add(new EggCarton(30));
-        return cartonIndex;
-    }
-
 
 
 }

@@ -24,8 +24,6 @@ public class Farm extends Building {
         this.getProducts().add(product);
     }
 
-
-
     public ArrayList<Building> getBuildings() {
         return buildings;
     }

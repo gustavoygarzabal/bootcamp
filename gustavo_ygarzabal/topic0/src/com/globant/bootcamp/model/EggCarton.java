@@ -32,8 +32,6 @@ public class EggCarton extends Product{
             return true;
         }
         return false;
-
-
     }
 
     public int findIndexOfFreeSpace(){
