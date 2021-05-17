@@ -1,0 +1,81 @@
+[main] DEBUG 16/05/2021 18:31:55: Getting the farm instance
+[main] INFO  16/05/2021 18:31:55: 
+==== RED ====
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+===============
+[main] INFO  16/05/2021 18:31:55: 
+==== RED ====
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(G)(G)(G)(G)
+===============
+[main] INFO  16/05/2021 18:31:55: 
+==== WHITE ====
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(G)
+(G)(G)(G)(G)(G)
+===============
+[main] DEBUG 16/05/2021 19:18:26: Getting the farm instance
+[main] DEBUG 16/05/2021 19:18:45: Getting the farm instance
+[main] INFO  16/05/2021 19:18:45: 
+==== RED ====
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+===============
+==== RED ====
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(G)(G)(G)(G)
+===============
+==== WHITE ====
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(G)
+(G)(G)(G)(G)(G)
+===============
+[main] DEBUG 16/05/2021 21:07:40: Getting the farm instance
+[main] INFO  16/05/2021 21:07:40: 
+==== RED ====
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+===============
+==== RED ====
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(G)(G)(G)(G)
+===============
+==== WHITE ====
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(G)
+(G)(G)(G)(G)(G)
+===============
