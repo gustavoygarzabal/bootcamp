@@ -6,6 +6,7 @@ import com.globant.bootcamp.abstracts.Bird;
 import com.globant.bootcamp.productFactory.EggCreator;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 //TODO implement that a hen can put any number of eggs
 
@@ -53,4 +54,14 @@ public class Chicken extends Bird {
         EggCreator eggCreator = new EggCreator();
         return eggCreator.getEgg(this.eggColor, 2);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Chicken chicken = (Chicken) o;
+        return eggColor == chicken.eggColor;
+    }
+
 }

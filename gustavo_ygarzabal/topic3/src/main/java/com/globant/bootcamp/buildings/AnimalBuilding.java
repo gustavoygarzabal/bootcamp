@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public abstract class AnimalBuilding extends AnimalManager implements Building{
-    private ArrayList<Product> products = new ArrayList<>();
+    private  ArrayList<Product> products = new ArrayList<>();
 
     @Override
     public ArrayList<Product> getProducts() {

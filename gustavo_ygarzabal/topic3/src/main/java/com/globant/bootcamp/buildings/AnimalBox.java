@@ -5,8 +5,9 @@ import com.globant.bootcamp.abstracts.Animal;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public abstract class AnimalBox {
+public class AnimalBox {
     private int capacity=0;
+
     private ArrayList<Animal> animals = new ArrayList<Animal>();
 
     public int getCapacity() {
@@ -14,7 +15,9 @@ public abstract class AnimalBox {
     }
 
     public void setCapacity(int capacity) {
-        this.capacity = capacity;
+        if(capacity >= 0 && this.getAnimals().size() <= capacity){
+            this.capacity = capacity;
+        }
     }
 
     public ArrayList<Animal> getAnimals() {
@@ -22,7 +25,7 @@ public abstract class AnimalBox {
     }
 
     public void setAnimals(ArrayList<Animal> animals) {
-        this.animals = animals;
+        animals.forEach(animal -> this.addAnimal(animal));
     }
 
     public boolean isNotFull(){

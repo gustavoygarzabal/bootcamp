@@ -11,6 +11,7 @@ import com.globant.bootcamp.products.EggCarton;
 import java.util.ArrayList;
 
 public class HenHouse extends AnimalBuilding {
+    private ArrayList<EggCarton> products = new ArrayList<>();
 
     @Override
     public void work() {
