@@ -3,9 +3,8 @@ package com.globant.bootcamp.buildings;
 import com.globant.bootcamp.products.Product;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-public abstract class AnimalBuilding extends AnimalManager implements Building{
+public abstract class AnimalBuilding extends RestrictedAnimalBox implements Building{
     private  ArrayList<Product> products = new ArrayList<>();
 
     @Override

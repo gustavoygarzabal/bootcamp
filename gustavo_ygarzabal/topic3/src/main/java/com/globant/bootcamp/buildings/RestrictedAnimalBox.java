@@ -4,7 +4,7 @@ import com.globant.bootcamp.abstracts.Animal;
 
 import java.util.ArrayList;
 
-public class AnimalManager extends AnimalBox{
+public class RestrictedAnimalBox extends AnimalBox{
     private ArrayList<Animal> allowedAnimals = new ArrayList<Animal>();
 
     public ArrayList<Animal> getAllowedAnimals() {

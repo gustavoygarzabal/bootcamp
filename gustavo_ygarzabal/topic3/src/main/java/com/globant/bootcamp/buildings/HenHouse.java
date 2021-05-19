@@ -11,7 +11,8 @@ import com.globant.bootcamp.products.EggCarton;
 import java.util.ArrayList;
 
 public class HenHouse extends AnimalBuilding {
-    private ArrayList<EggCarton> products = new ArrayList<>();
+    //TODO not implemented were set this value yet
+    private EggCartonSize eggCartonSize = EggCartonSize.MAPLE;
 
     @Override
     public void work() {
@@ -45,10 +46,15 @@ public class HenHouse extends AnimalBuilding {
             cartonIndex++;
         }
         EggCartonCreator eggCartonCreator = new EggCartonCreator();
-        eggCartons.add(eggCartonCreator.getEggCarton(EggCartonSize.MAPLE, egg.getEggColor()));
+        eggCartons.add(eggCartonCreator.getEggCarton(eggCartonSize, egg.getEggColor()));
         return cartonIndex;
     }
 
+    public EggCartonSize getEggCartonSize() {
+        return eggCartonSize;
+    }
 
-
+    public void setEggCartonSize(EggCartonSize eggCartonSize) {
+        this.eggCartonSize = eggCartonSize;
+    }
 }

@@ -34,6 +34,6 @@ public class Egg {
 
     @Override
     public String toString(){
-        return (getEggColor().equals(EggColor.RED))? "(D)" : "(O)";
+        return getEggColor().getDraw();
     }
 }

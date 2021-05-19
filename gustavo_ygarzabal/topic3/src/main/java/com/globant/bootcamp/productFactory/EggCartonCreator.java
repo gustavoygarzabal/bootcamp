@@ -8,31 +8,26 @@ import com.globant.bootcamp.products.EggCarton;
 import java.util.ArrayList;
 
 public class EggCartonCreator {
-    private final int[] MAPLE_DIM = {6,5};
-    private final int[] DOZEN_DIM= {2,6};
-    private final int[] HALFDOZEN_DIM= {2,3};
-
     //TODO finish this method
     public EggCarton getEggCarton (EggCartonSize eggCartonSize, EggColor eggColor) {
         EggCarton eggCarton = null;
-        int[] cartonValues=null;
+        EggCartonSize cartonSize=null;
         switch (eggCartonSize){
             case MAPLE:
-                cartonValues = MAPLE_DIM;
+                cartonSize = EggCartonSize.MAPLE;
                 break;
             case DOZEN:
-                cartonValues = DOZEN_DIM;
+                cartonSize = EggCartonSize.DOZEN;
                 break;
             case HALFDOZEN:
-                cartonValues = HALFDOZEN_DIM;
+                cartonSize = EggCartonSize.HALFDOZEN;
                 break;
         }
-        int capacity = cartonValues[0]*cartonValues[1];
-        eggCarton = new EggCarton(capacity);
+        int capacity = cartonSize.getLines() * cartonSize.getColumns();
+        eggCarton = new EggCarton(capacity, eggColor);
         eggCarton.setEggs(getArrayOfNulls(capacity));
-        eggCarton.setLine(cartonValues[0]);
-        eggCarton.setColumn(cartonValues[1]);
-        eggCarton.setEggColor(eggColor);
+        eggCarton.setLine(cartonSize.getLines());
+        eggCarton.setColumn(cartonSize.getColumns());
 
         return eggCarton;
     }

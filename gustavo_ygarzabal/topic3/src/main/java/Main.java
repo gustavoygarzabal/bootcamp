@@ -1,5 +1,6 @@
 import com.globant.bootcamp.abstracts.Animal;
 import com.globant.bootcamp.buildings.*;
+import com.globant.bootcamp.enums.EggColor;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -11,6 +12,8 @@ public class Main {
         Farm farm = new FarmCreator().createBuilding(5);
         System.out.println(farm.getCapacity());
         logger.debug("Getting the farm instance");
+
+        logger.info(EggColor.WHITE.getDraw());
 
         farm.addBuilding(new HenHouseCreator().createBuilding((int)(40*0.7),(int)(40*0.3)));
         farm.work();

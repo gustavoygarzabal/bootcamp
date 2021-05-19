@@ -6,14 +6,12 @@ import com.globant.bootcamp.enums.EggColor;
 import java.util.ArrayList;
 
 public class EggCarton implements Product {
-    private int capacity;
     private ArrayList<Egg> eggs;
     private EggColor eggColor;
     private int column;
     private int line;
 
-    public EggCarton(int capacity) {
-        this.setCapacity(capacity);
+    private EggCarton(int capacity) {
         ArrayList<Egg> carton = new ArrayList<Egg>();
         for(int i=0; i<capacity; i++){
             carton.add(null);
@@ -22,7 +20,6 @@ public class EggCarton implements Product {
     }
 
     public EggCarton(int capacity, EggColor eggColor) {
-        this(capacity);
         this.setEggColor(eggColor);
     }
 
@@ -35,16 +32,8 @@ public class EggCarton implements Product {
         return false;
     }
 
-    public int getColumn() {
-        return column;
-    }
-
     public void setColumn(int column) {
         this.column = column;
-    }
-
-    public int getLine() {
-        return line;
     }
 
     public void setLine(int line) {
@@ -78,31 +67,6 @@ public class EggCarton implements Product {
     @Override
     public boolean isFull() {
         return !this.getEggs().contains(null);
-    }
-
-    @Override
-    public int getCapacity() {
-        return line*column;
-    }
-
-    @Override
-    public void setCapacity(int capacity) {
-        this.capacity= capacity;
-    }
-
-
-    //TODO this method should be deprecated due it's replaced by toString()
-    @Override
-    public void printProduct() {
-        Egg currentEgg;
-        for(int i=0; i<this.line; i++) {
-            for(int j=0; j<this.column; j++){
-                currentEgg = this.getEggs().get((i*this.column)+j);
-                System.out.print((currentEgg!=null)? currentEgg.toString() : "(G)");
-            }
-            System.out.println();
-        }
-        System.out.println("===========");
     }
 
     @Override
