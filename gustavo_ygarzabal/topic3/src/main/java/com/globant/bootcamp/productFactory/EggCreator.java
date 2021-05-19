@@ -11,11 +11,11 @@ public class EggCreator {
             new Egg(EggColor.WHITE)
     };
 
-    public Egg getEgg(EggColor eggColor){
+    public static Egg getEgg(EggColor eggColor){
         return EggColor.RED.equals(eggColor) ? eggPool[0] : eggPool[1];
     }
 
-    public ArrayList<Egg> getEgg(EggColor eggColor, int q){
+    public static ArrayList<Egg> getEgg(EggColor eggColor, int q){
         ArrayList<Egg> eggs = new ArrayList<>();
         Egg egg = getEgg(eggColor);
         for (int i=0; i<q; i++){

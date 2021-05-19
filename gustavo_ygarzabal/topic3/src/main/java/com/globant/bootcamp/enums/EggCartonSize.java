@@ -4,7 +4,7 @@ package com.globant.bootcamp.enums;
 public enum EggCartonSize {
     MAPLE(6, 5),
     DOZEN(2, 6),
-    HALFDOZEN(2,3);
+    HALF_DOZEN(2,3);
 
     private final int lines;
     private final int columns;
@@ -12,6 +12,7 @@ public enum EggCartonSize {
     EggCartonSize(int lines, int columns) {
         this.lines= lines;
         this.columns= columns;
+
     }
 
     public int getLines (){

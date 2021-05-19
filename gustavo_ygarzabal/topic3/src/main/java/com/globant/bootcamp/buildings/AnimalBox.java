@@ -4,11 +4,12 @@ import com.globant.bootcamp.abstracts.Animal;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class AnimalBox {
     private int capacity=0;
 
-    private ArrayList<Animal> animals = new ArrayList<Animal>();
+    private List<Animal> animals = new ArrayList<>();
 
     public int getCapacity() {
         return capacity;
@@ -20,7 +21,7 @@ public class AnimalBox {
         }
     }
 
-    public ArrayList<Animal> getAnimals() {
+    public List<Animal> getAnimals() {
         return animals;
     }
 

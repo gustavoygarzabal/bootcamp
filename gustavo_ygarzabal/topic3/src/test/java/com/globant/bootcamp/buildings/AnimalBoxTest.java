@@ -29,8 +29,8 @@ class AnimalBoxTest {
                 new Chicken(Gender.FEMALE, EggColor.WHITE),
                 new Dog(Gender.MALE),
                 new Dog(Gender.FEMALE),
-                new Chicken(Gender.MALE, EggColor.RED),
                 new Chicken(Gender.FEMALE, EggColor.RED),
+                new Chicken(Gender.MALE, EggColor.RED),
                 new Chicken(Gender.FEMALE, EggColor.RED),
                 new Chicken(Gender.FEMALE, EggColor.RED)));
     }
@@ -72,15 +72,15 @@ class AnimalBoxTest {
         animalBox.setAnimals(animals);
 
         animalBox.removeAnimal(new Dog(Gender.MALE));
-        assertNotEquals(new Dog(Gender.FEMALE),animalBox.getAnimals().get(2));
+        assertNotEquals(new Dog(Gender.MALE),animalBox.getAnimals().get(1));
         assertEquals(capacity-1, animalBox.getAnimals().size());
 
         animalBox.removeAnimal(new Dog(Gender.MALE));
-        assertNotEquals(new Dog(Gender.FEMALE),animalBox.getAnimals().get(2));
+        assertEquals(new Dog(Gender.FEMALE),animalBox.getAnimals().get(1));
         assertEquals(capacity-1, animalBox.getAnimals().size());
 
         animalBox.removeAnimal(new Chicken(Gender.FEMALE, EggColor.RED));
-        assertNotEquals(new Dog(Gender.FEMALE),animalBox.getAnimals().get(2));
+        assertEquals(new Chicken(Gender.MALE, EggColor.RED),animalBox.getAnimals().get(2));
         assertEquals(capacity-2, animalBox.getAnimals().size());
     }
 

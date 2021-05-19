@@ -11,25 +11,14 @@ public class EggCarton implements Product {
     private int column;
     private int line;
 
-    private EggCarton(int capacity) {
-        ArrayList<Egg> carton = new ArrayList<Egg>();
-        for(int i=0; i<capacity; i++){
-            carton.add(null);
-        }
-        this.setEggs(carton);
-    }
-
-    public EggCarton(int capacity, EggColor eggColor) {
+    public EggCarton(EggColor eggColor) {
         this.setEggColor(eggColor);
     }
 
-    //TODO Agregar esto
-    public boolean addEgg(Egg egg){
+    public void addEgg(Egg egg){
         if (!this.isFull()){
             this.getEggs().set(findIndexOfFreeSpace(), egg);
-            return true;
         }
-        return false;
     }
 
     public void setColumn(int column) {
@@ -70,13 +59,21 @@ public class EggCarton implements Product {
     }
 
     @Override
+    public boolean isNotFull() {
+        return this.getEggs().contains(null);
+    }
+
+    @Override
     public String toString() {
-        String result="\n==== "+this.getEggColor()+" ====\n";
+        String result= String.format("\n==== %s ====\n", this.getEggColor());
         Egg currentEgg;
+        String eggToString;
+
         for(int i=0; i<this.line; i++) {
             for(int j=0; j<this.column; j++){
                 currentEgg = this.getEggs().get((i*this.column)+j);
-                result = result.concat((currentEgg!=null)? currentEgg.toString() : "(G)");
+                eggToString = currentEgg!=null? currentEgg.toString() : "(G)";
+                result = result.concat(eggToString);
             }
             result = result.concat("\n");
         }

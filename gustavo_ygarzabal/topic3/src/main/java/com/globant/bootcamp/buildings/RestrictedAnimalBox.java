@@ -3,11 +3,12 @@ package com.globant.bootcamp.buildings;
 import com.globant.bootcamp.abstracts.Animal;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RestrictedAnimalBox extends AnimalBox{
-    private ArrayList<Animal> allowedAnimals = new ArrayList<Animal>();
+    private List<Animal> allowedAnimals = new ArrayList<>();
 
-    public ArrayList<Animal> getAllowedAnimals() {
+    public List<Animal> getAllowedAnimals() {
         return allowedAnimals;
     }
 

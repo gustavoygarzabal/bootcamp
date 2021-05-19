@@ -13,4 +13,6 @@ public enum EggColor {
     public String getDraw() {
         return label;
     }
+
+
 }

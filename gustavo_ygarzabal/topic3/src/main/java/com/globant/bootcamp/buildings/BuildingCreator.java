@@ -4,6 +4,5 @@ package com.globant.bootcamp.buildings;
 //TODO all this methods should be static?
 
 public interface BuildingCreator {
-
-    public abstract Building createBuilding(int capacity);
+    public Building createBuilding(int capacity);
 }

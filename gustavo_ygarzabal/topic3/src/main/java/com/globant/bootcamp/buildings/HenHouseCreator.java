@@ -1,7 +1,6 @@
 package com.globant.bootcamp.buildings;
 
 import com.globant.bootcamp.animalsFactory.ChickenCreator;
-import com.globant.bootcamp.animals.Chicken;
 import com.globant.bootcamp.enums.EggColor;
 
 
