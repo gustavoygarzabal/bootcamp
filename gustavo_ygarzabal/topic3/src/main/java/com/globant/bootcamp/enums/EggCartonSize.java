@@ -1,6 +1,5 @@
 package com.globant.bootcamp.enums;
 
-//TODO add properties to avoid the responsibility in eggCarton
 public enum EggCartonSize {
     MAPLE(6, 5),
     DOZEN(2, 6),

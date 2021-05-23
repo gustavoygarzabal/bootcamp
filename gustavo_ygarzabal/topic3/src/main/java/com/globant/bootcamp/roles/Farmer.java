@@ -2,8 +2,6 @@ package com.globant.bootcamp.roles;
 
 import com.globant.bootcamp.enums.Gender;
 
-//TODO the farmer could be the responsable of start the work of the farm
-
 public class Farmer extends Person {
     public Farmer(Gender gender, String name) {
         super(gender, name);

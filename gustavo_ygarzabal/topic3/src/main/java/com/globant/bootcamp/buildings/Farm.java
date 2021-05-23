@@ -1,12 +1,13 @@
 package com.globant.bootcamp.buildings;
 
+import com.globant.bootcamp.abstracts.Animal;
 import com.globant.bootcamp.products.Product;
 import com.globant.bootcamp.roles.Farmer;
 
 import java.util.ArrayList;
 
-public class Farm extends FarmBuilding<Product>{
-    private ArrayList<Building> buildings = new ArrayList<Building>();
+public class Farm extends FarmBuildingWithAnimals<Animal, Product> {
+    private ArrayList<Building> buildings = new ArrayList<>();
     private Farmer farmer;
     private static Farm farm;
 
@@ -44,7 +45,7 @@ public class Farm extends FarmBuilding<Product>{
     public void work() {
         this.getBuildings().forEach(building -> {
             building.work();
-            this.deliverProducts().addAll(building.deliverProducts());
+            this.getProducts().addAll(building.getProducts());
             building.cleanProducts();
         });
     }

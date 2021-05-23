@@ -19,12 +19,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AnimalBoxTest {
     int capacity = 7;
-    AnimalBox animalBox;
+    AnimalBox<Animal> animalBox;
     ArrayList<Animal> animals;
 
     @BeforeEach
     void initTest() {
-        animalBox = new AnimalBox();
+        animalBox = new AnimalBox<>();
         animals = new ArrayList<>(Arrays.asList(
                 new Chicken(Gender.FEMALE, EggColor.WHITE),
                 new Dog(Gender.MALE),
@@ -62,7 +62,7 @@ class AnimalBoxTest {
         animalBox.setCapacity(capacity);
 
         if(capacity == 0){
-            assertEquals(false, animalBox.isNotFull());
+            assertFalse(animalBox.isNotFull());
         }
     }
 

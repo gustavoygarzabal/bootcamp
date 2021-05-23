@@ -8,7 +8,6 @@ import com.globant.bootcamp.products.EggCarton;
 import java.util.ArrayList;
 
 public class EggCartonCreator {
-    //TODO finish this method
     public static EggCarton getEggCarton (EggCartonSize eggCartonSize, EggColor eggColor) {
         EggCarton eggCarton = new EggCarton(eggColor);
         int capacity = eggCartonSize.getLines() * eggCartonSize.getColumns();

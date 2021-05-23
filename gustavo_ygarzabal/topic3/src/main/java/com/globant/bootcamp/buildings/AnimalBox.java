@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AnimalBox {
+public class AnimalBox<T extends Animal>{
     private int capacity=0;
 
-    private List<Animal> animals = new ArrayList<>();
+    private List<T> animals = new ArrayList<>();
 
     public int getCapacity() {
         return capacity;
@@ -21,11 +21,11 @@ public class AnimalBox {
         }
     }
 
-    public List<Animal> getAnimals() {
+    public List<T> getAnimals() {
         return animals;
     }
 
-    public void setAnimals(ArrayList<Animal> animals) {
+    public void setAnimals(List<T> animals) {
         animals.forEach(animal -> this.addAnimal(animal));
     }
 
@@ -33,17 +33,17 @@ public class AnimalBox {
         return this.getAnimals().size() < this.getCapacity();
     }
 
-    public void removeAnimal(Animal animal){
+    public void removeAnimal(T animal){
         this.getAnimals().remove(animal);
     }
 
-    public void addAnimal(Animal animal){
+    public void addAnimal(T animal){
         if(isNotFull()){
             this.getAnimals().add(animal);
         }
     }
 
-    public int countRepetitions(Animal animal) {
+    public int countRepetitions(T animal) {
         return Collections.frequency(this.getAnimals(), animal);
     }
 

@@ -18,13 +18,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RestrictedAnimalBoxTest {
     int capacity = 7;
-    RestrictedAnimalBox restrictedAnimalBox;
+    RestrictedAnimalBox<Animal> restrictedAnimalBox;
     ArrayList<Animal> animals;
     ArrayList<Animal> allowed;
 
     @BeforeEach
     void initTest() {
-        restrictedAnimalBox = new RestrictedAnimalBox();
+        restrictedAnimalBox = new RestrictedAnimalBox<>();
         animals = new ArrayList<>(Arrays.asList(
                 new Chicken(Gender.FEMALE, EggColor.WHITE),
                 new Dog(Gender.MALE),

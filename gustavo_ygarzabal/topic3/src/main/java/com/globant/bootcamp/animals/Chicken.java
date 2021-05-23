@@ -8,8 +8,6 @@ import com.globant.bootcamp.productFactory.EggCreator;
 import java.util.ArrayList;
 import java.util.Objects;
 
-//TODO implement that a hen can put any number of eggs
-
 public class Chicken extends Bird {
     private EggColor eggColor;
     public Chicken(Gender gender) {

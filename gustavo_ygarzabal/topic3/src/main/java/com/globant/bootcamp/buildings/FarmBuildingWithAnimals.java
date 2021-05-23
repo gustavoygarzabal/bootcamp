@@ -1,24 +1,21 @@
 package com.globant.bootcamp.buildings;
 
+import com.globant.bootcamp.abstracts.Animal;
 import com.globant.bootcamp.products.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class FarmBuilding<T extends Product> extends RestrictedAnimalBox implements Building{
+public abstract class FarmBuildingWithAnimals<A extends Animal, T extends Product> extends RestrictedAnimalBox<A> implements Building<T>{
     private List<T> products = new ArrayList<>();
 
+    @Override
     public List<T> getProducts() {
         return products;
     }
 
     public void setProducts(List<T> products) {
         this.products = products;
-    }
-
-    @Override
-    public List<Product> deliverProducts() {
-        return (List<Product>) products;
     }
 
     @Override

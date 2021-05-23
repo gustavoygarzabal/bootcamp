@@ -4,6 +4,7 @@ import com.globant.bootcamp.animals.Egg;
 import com.globant.bootcamp.enums.EggColor;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class EggCarton implements Product {
     private ArrayList<Egg> eggs;
@@ -15,10 +16,17 @@ public class EggCarton implements Product {
         this.setEggColor(eggColor);
     }
 
-    public void addEgg(Egg egg){
+    public void addEgg(Egg egg) throws Exception{
+        if(! eggColor.equals(egg.eggColor)){
+            throw new Exception("You try to add a egg ith a different color");
+        }
         if (!this.isFull()){
             this.getEggs().set(findIndexOfFreeSpace(), egg);
         }
+    }
+
+    public int getCapacity() {
+        return line*column;
     }
 
     public void setColumn(int column) {
@@ -45,8 +53,8 @@ public class EggCarton implements Product {
         return eggColor;
     }
 
-    public boolean isOfColor(Egg egg){
-        return this.getEggColor().equals(egg.getEggColor());
+    public boolean isOfColor(EggColor eggColor){
+        return this.getEggColor().equals(eggColor);
     }
 
     public void setEggColor(EggColor eggColor) {
@@ -80,4 +88,13 @@ public class EggCarton implements Product {
         result= result.concat("===============");
         return result;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EggCarton eggCarton = (EggCarton) o;
+        return column == eggCarton.column && line == eggCarton.line && eggs.equals(eggCarton.eggs) && eggColor == eggCarton.eggColor;
+    }
+
 }
