@@ -1,0 +1,26 @@
+[http-nio-8080-exec-1] DEBUG 24/05/2021 22:54:51: Getting the farm instance
+[http-nio-8080-exec-1] INFO  24/05/2021 22:54:51: 
+==== RED ====
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+===============
+==== RED ====
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(D)(D)(D)(D)
+(D)(G)(G)(G)(G)
+===============
+==== WHITE ====
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(O)
+(O)(O)(O)(O)(G)
+(G)(G)(G)(G)(G)
+===============
