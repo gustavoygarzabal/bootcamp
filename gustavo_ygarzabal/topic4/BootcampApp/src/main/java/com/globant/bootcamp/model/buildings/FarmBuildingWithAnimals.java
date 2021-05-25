@@ -29,15 +29,6 @@ public abstract class FarmBuildingWithAnimals<A extends Animal, T extends Produc
         return result;
     }
 
-    // TODO how to handle the view
-    public String showProductsForHTML() {
-        String result ="";
-        for (T product : products) {
-            result = result.concat(product.toStringForHTML());
-        }
-        return result;
-    }
-
     @Override
     public void cleanProducts() {
         this.products.clear();

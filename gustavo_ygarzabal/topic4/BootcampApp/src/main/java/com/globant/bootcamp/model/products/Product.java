@@ -9,6 +9,4 @@ public interface Product {
     @Override
     public String toString();
 
-    // TODO how to handle the view
-    public String toStringForHTML();
 }

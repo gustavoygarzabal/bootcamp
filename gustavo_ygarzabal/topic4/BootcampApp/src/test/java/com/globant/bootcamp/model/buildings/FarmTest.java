@@ -37,12 +37,10 @@ class FarmTest {
         } catch (Exception e) {
 
         }
-
-
-
         Mockito.when(building1.getProducts()).thenReturn(products1);
         Mockito.when(building2.getProducts()).thenReturn(products2);
         Farm farm = Farm.getInstance();
+        farm.setBuildings(new ArrayList<>());
         farm.addBuilding(building1);
         farm.addBuilding(building2);
         farm.work();

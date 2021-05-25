@@ -89,24 +89,6 @@ public class EggCarton implements Product {
         return result;
     }
 
-    // TODO how to handle the view
-    public String toStringForHTML() {
-        String result= String.format("<br>==== %s ====<br>", this.getEggColor());
-        Egg currentEgg;
-        String eggToString;
-
-        for(int i=0; i<this.line; i++) {
-            for(int j=0; j<this.column; j++){
-                currentEgg = this.getEggs().get((i*this.column)+j);
-                eggToString = currentEgg!=null? currentEgg.toString() : "(G)";
-                result = result.concat(eggToString);
-            }
-            result = result.concat("<br>");
-        }
-        result= result.concat("===============");
-        return result;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
