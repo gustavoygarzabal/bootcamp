@@ -1,4 +1,4 @@
-package com.globant.bootcamp.controller;
+package com.globant.bootcamp.controller.mvc;
 
 import com.globant.bootcamp.BootcampAppApplication;
 import com.globant.bootcamp.model.buildings.Farm;
@@ -23,7 +23,7 @@ public class FarmAppInitController {
 
     }
 
-    @GetMapping("/")
+    @GetMapping("/farm")
     public List<Product> showEggs() {
         Farm farm = Farm.getInstance();
         logger.debug("Getting the farm instance");
