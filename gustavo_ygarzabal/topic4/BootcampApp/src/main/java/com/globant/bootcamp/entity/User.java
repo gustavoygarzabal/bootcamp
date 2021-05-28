@@ -1,4 +1,4 @@
-package com.globant.bootcamp.model;
+package com.globant.bootcamp.entity;
 
 import com.sun.istack.NotNull;
 
@@ -11,10 +11,17 @@ public class User {
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true)
+    @NotNull
     private String name;
+
+    @NotNull
+    @Column(unique = true)
     private String email;
+
+    @NotNull
     private String address;
+
+    @NotNull
     private String role;
 
     public User() {};
