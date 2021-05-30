@@ -4,45 +4,66 @@ import com.globant.bootcamp.controller.rest.exception.UserAlreadyExistException;
 import com.globant.bootcamp.controller.rest.exception.UserNotFoundException;
 import com.globant.bootcamp.entity.User;
 import com.globant.bootcamp.repository.UserRepository;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.IanaLinkRelations;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
     private final UserRepository userRepository;
+    private final UserModelAssembler userModelAssembler;
 
     @Autowired
-    public UserController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository, UserModelAssembler userModelAssembler) {
         this.userRepository = userRepository;
-
-//        userRepository.save(new User("Gustavo", "ygarzabal.gustavo@gmail.com", "Av. Sarmiento", "Client"));
-//        userRepository.save(new User("John", "john.doe@gmail.com", "Av. Jones", "Client"));
-//        userRepository.save(new User("Cinthia", "cinthia@gmail.com", "Av. Jones", "Client"));
+        this.userModelAssembler = userModelAssembler;
     }
 
 
-    @GetMapping("/")
-    public List<User> all() {
-        return userRepository.findAll();
+    @GetMapping("")
+    public CollectionModel<EntityModel<User>>  all() {
+        List<EntityModel<User>> users = userRepository.findAll().stream()
+                .map(userModelAssembler::toModel)
+                .collect(Collectors.toList());
+
+        return CollectionModel.of(users,
+                linkTo(methodOn(UserController.class).all()).withSelfRel());
     }
 
-    @PostMapping("/")
-    public User newUser(@RequestBody User newUser){
+    @PostMapping("")
+    public ResponseEntity<?> newUser(@Valid @RequestBody User newUser){
+        newUser.setId(null);
         User user = userRepository.findUserByEmail(newUser.getEmail());
         if(user != null) {
             throw  new UserAlreadyExistException(newUser.getEmail());
         }
-        return userRepository.save(newUser);
+
+
+        EntityModel<User> entityModel = userModelAssembler.toModel(userRepository.save(newUser));
+
+        return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+                .body(entityModel);
     }
 
     @GetMapping("/id={id}")
-    public User getUserById(@PathVariable Long id){
-        return userRepository.findById(id)
+    public EntityModel<User> getUserById(@PathVariable Long id) {
+        User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException(id));
+
+        return userModelAssembler.toModel(user);
     }
 
     @GetMapping("/name={name}")
@@ -66,10 +87,6 @@ public class UserController {
                     return userRepository.save(user);
                 }).orElseThrow(() -> new UserNotFoundException(id));
     }
-
-
-
-
 
 
 

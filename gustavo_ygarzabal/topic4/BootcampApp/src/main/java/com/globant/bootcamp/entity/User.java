@@ -3,6 +3,7 @@ package com.globant.bootcamp.entity;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @Entity
@@ -11,17 +12,20 @@ public class User {
     @GeneratedValue
     private Long id;
 
-    @NotNull
+    @NotBlank(message = "Name is mandatory")
+    @Column(nullable = false)
     private String name;
 
-    @NotNull
-    @Column(unique = true)
+    @NotBlank(message = "Email is mandatory")
+    @Column(unique = true, nullable = false)
     private String email;
 
-    @NotNull
+    @NotBlank(message = "Address is mandatory")
+    @Column(nullable = false)
     private String address;
 
-    @NotNull
+    @NotBlank(message = "Address is mandatory")
+    @Column(nullable = false)
     private String role;
 
     public User() {};
