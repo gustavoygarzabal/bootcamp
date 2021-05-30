@@ -10,22 +10,23 @@ import java.util.Objects;
 public class User {
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private Long id;
 
     @NotBlank(message = "Name is mandatory")
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @NotBlank(message = "Email is mandatory")
-    @Column(unique = true, nullable = false)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     @NotBlank(message = "Address is mandatory")
-    @Column(nullable = false)
+    @Column(name = "address", nullable = false)
     private String address;
 
     @NotBlank(message = "Address is mandatory")
-    @Column(nullable = false)
+    @Column(name = "role", nullable = false)
     private String role;
 
     public User() {};

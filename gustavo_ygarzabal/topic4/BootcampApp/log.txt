@@ -1,0 +1,2 @@
+[http-nio-8080-exec-3] ERROR 30/05/2021 03:58:02: User trying to delete not exist
+[http-nio-8080-exec-2] ERROR 30/05/2021 03:59:20: User trying to delete not exist
