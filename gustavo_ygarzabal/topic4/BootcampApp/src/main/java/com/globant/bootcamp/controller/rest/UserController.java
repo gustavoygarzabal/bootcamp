@@ -85,6 +85,15 @@ public class UserController {
 
     @PutMapping("/id={id}")
     public ResponseEntity<?> updateUser(@Valid @RequestBody User newUser, @PathVariable Long id) {
+        User userWithThatEmail = userRepository.findOneByEmail(newUser.getEmail()).orElse(null);
+
+        if(userWithThatEmail!=null) {
+            if (!userWithThatEmail.getId().equals(newUser.getId())) {
+                logger.debug("trying to update a user to a already existing email");
+                throw new UserAlreadyExistException(newUser.getEmail());
+            }
+        }
+
         EntityModel<User> entityModel = userModelAssembler.toModel(userRepository.findById(id)
                 .map(user -> {
                     user.setName(newUser.getName());
@@ -96,7 +105,7 @@ public class UserController {
 
         return ResponseEntity
                 .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
-                .body(entityModel)
+                .body(entityModel);
     }
 
     @DeleteMapping("/id={id}")

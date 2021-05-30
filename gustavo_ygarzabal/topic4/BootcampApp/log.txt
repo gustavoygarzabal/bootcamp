@@ -1,2 +1,7 @@
 [http-nio-8080-exec-3] ERROR 30/05/2021 03:58:02: User trying to delete not exist
 [http-nio-8080-exec-2] ERROR 30/05/2021 03:59:20: User trying to delete not exist
+[http-nio-8080-exec-5] DEBUG 30/05/2021 14:40:31: trying to update a user to a already existing email
+[http-nio-8080-exec-2] DEBUG 30/05/2021 14:53:43: trying to update a user to a already existing email
+[http-nio-8080-exec-3] DEBUG 30/05/2021 14:53:46: trying to update a user to a already existing email
+[http-nio-8080-exec-4] DEBUG 30/05/2021 14:54:00: trying to update a user to a already existing email
+[http-nio-8080-exec-7] DEBUG 30/05/2021 14:54:39: trying to update a user to a already existing email
