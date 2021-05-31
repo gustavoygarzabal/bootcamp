@@ -4,12 +4,16 @@ import com.globant.bootcamp.controller.rest.assembler.OrderModelAssembler;
 import com.globant.bootcamp.controller.rest.exception.OrderNotFoundException;
 import com.globant.bootcamp.controller.rest.exception.UserNotFoundException;
 import com.globant.bootcamp.entity.Order;
+import com.globant.bootcamp.entity.OrderLine;
 import com.globant.bootcamp.model.enums.OrderStatus;
 import com.globant.bootcamp.repository.OrderRepository;
 import com.globant.bootcamp.repository.UserRepository;
+import com.globant.bootcamp.service.OrderLineService;
+import com.globant.bootcamp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.mediatype.problem.Problem;
 import org.springframework.http.HttpHeaders;
@@ -31,13 +35,18 @@ public class OrderController {
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
     private final OrderModelAssembler orderModelAssembler;
+    private final OrderLineService orderLineService;
+    private final ProductService productService;
 
     @Autowired
     public OrderController(OrderRepository orderRepository, UserRepository userRepository,
-                           OrderModelAssembler orderModelAssembler) {
+                           OrderModelAssembler orderModelAssembler, OrderLineService orderLineService,
+                           ProductService productService) {
+        this.productService = productService;
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
         this.orderModelAssembler = orderModelAssembler;
+        this.orderLineService = orderLineService;
     }
 
 
@@ -68,8 +77,6 @@ public class OrderController {
 
         return ResponseEntity.created(linkTo(methodOn(OrderController.class).getOrderById(order.getId())).toUri())
                 .body(orderModelAssembler.toModel(order));
-
-
     }
 
     @DeleteMapping("/id={id}/cancel")
@@ -107,6 +114,24 @@ public class OrderController {
                 .body(Problem.create()
                         .withTitle("Method not allowed")
                         .withDetail("You can't complete an order that is in the " + order.getOrderStatus() + " status"));
+    }
+
+    //TODO check if the product exist
+    @PostMapping("/id={id}/addProduct={idProduct}/quantity={quantity}")
+    public ResponseEntity<?> addProduct(@PathVariable Long id, @PathVariable Long idProduct, @PathVariable int quantity) {
+
+        Order order = orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
+
+        OrderLine newOrderLine = new OrderLine(
+                order,
+                productService.getProduct(idProduct),
+                quantity
+        );
+
+        orderLineService.save(newOrderLine);
+        return ResponseEntity.created(orderModelAssembler.toModel(order).getRequiredLink(IanaLinkRelations.SELF).toUri())
+                .body(order);
+
     }
 
 

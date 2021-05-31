@@ -1,5 +1,6 @@
 package com.globant.bootcamp.controller.rest;
 
+import com.globant.bootcamp.controller.rest.exception.ProductNotFoundException;
 import com.globant.bootcamp.controller.rest.exception.UserAlreadyExistException;
 import com.globant.bootcamp.controller.rest.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -33,15 +34,24 @@ public class ExceptionController {
     @ResponseBody
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
+    public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException e) {
         Map<String, String> errors = new HashMap<>();
-        ex.getBindingResult().getAllErrors().forEach((error) -> {
+        e.getBindingResult().getAllErrors().forEach((error) -> {
             String fieldName = ((FieldError) error).getField();
             String errorMessage = error.getDefaultMessage();
             errors.put(fieldName, errorMessage);
         });
         return errors;
     }
+
+    @ResponseBody
+    @ExceptionHandler(ProductNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String productNotFoundHandler(ProductNotFoundException e) {
+        return e.getMessage();
+    }
+
+
 
 
 }

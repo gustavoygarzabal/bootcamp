@@ -1,5 +1,6 @@
 package com.globant.bootcamp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -34,6 +35,7 @@ public class User {
     @NotBlank(message = "Password is mandatory")
     @Column(nullable = false)
     private String password;
+
 
     @OneToMany(mappedBy = "user")
     private List<Order> orderList;

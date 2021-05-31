@@ -3,12 +3,15 @@ package com.globant.bootcamp.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.globant.bootcamp.model.enums.OrderStatus;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "user_order")
@@ -22,8 +25,11 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(nullable = false)
-    private Double total;
+    @NotBlank(message = "A deliver address is necessary")
+    private String address;
+
+//    @Column(nullable = false)
+//    private Double total;
 
     @Column(name = "date_order",nullable = false)
     @JsonFormat(pattern="yyy-MM-dd HH:mm:ss")
@@ -32,18 +38,36 @@ public class Order {
     @Column(nullable = false)
     private OrderStatus orderStatus;
 
-    @NotBlank(message = "A list of product is mandatory")
-    @Column(nullable = false)
-    private String productList;
+//    @NotBlank(message = "A list of product is mandatory")
+//    @Column(nullable = false)
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "pk.order")
+    private List<OrderLine> productList = new ArrayList<>();
+
+    @Transient
+    public Double getTotalOrderPrice() {
+        double sum = 0D;
+        List<OrderLine> orderProducts = getProductList();
+        for (OrderLine op : orderProducts) {
+            sum += op.getTotalPrice();
+        }
+        return sum;
+    }
+
+    @Transient
+    public int getNumberOfProducts(){
+        return this.productList.size();
+    }
 
 
     public Order () { };
-
-    public Order(User user, Double total, OrderStatus orderStatus, String productList) {
+//Double total,
+    public Order(User user, String address ,OrderStatus orderStatus) {
         this.user = user;
-        this.total = total;
+//        this.total = total;
+        this.address = address;
         this.orderStatus = orderStatus;
-        this.productList = productList;
     }
 
     @PrePersist
@@ -67,13 +91,21 @@ public class Order {
         this.user = user;
     }
 
-    public Double getTotal() {
-        return total;
+    public String getAddress() {
+        return address;
     }
 
-    public void setTotal(Double total) {
-        this.total = total;
+    public void setAddress(String address) {
+        this.address = address;
     }
+
+    //    public Double getTotal() {
+//        return total;
+//    }
+//
+//    public void setTotal(Double total) {
+//        this.total = total;
+//    }
 
     public Timestamp getOrderDate() {
         return orderDate;
@@ -91,11 +123,11 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public String getProductList() {
+    public List<OrderLine> getProductList() {
         return productList;
     }
 
-    public void setProductList(String productList) {
+    public void setProductList(List<OrderLine> productList) {
         this.productList = productList;
     }
 
@@ -104,7 +136,7 @@ public class Order {
         return "Order{" +
                 "id=" + id +
                 ", user=" + user+
-                ", total=" + total +
+                ", total=" + getTotalOrderPrice() +
                 ", orderDate=" + orderDate +
                 ", orderStatus=" + orderStatus +
                 ", productList='" + productList + '\'' +
