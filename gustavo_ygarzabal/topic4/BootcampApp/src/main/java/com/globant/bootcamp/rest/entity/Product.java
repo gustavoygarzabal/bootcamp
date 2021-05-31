@@ -1,4 +1,4 @@
-package com.globant.bootcamp.entity;
+package com.globant.bootcamp.rest.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

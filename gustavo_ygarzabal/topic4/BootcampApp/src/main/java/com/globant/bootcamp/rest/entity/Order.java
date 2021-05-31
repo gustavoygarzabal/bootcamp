@@ -1,4 +1,4 @@
-package com.globant.bootcamp.entity;
+package com.globant.bootcamp.rest.entity;
 
 
 

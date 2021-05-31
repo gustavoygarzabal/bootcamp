@@ -1,7 +1,7 @@
-package com.globant.bootcamp.service;
+package com.globant.bootcamp.rest.service;
 
-import com.globant.bootcamp.entity.OrderLine;
-import com.globant.bootcamp.repository.OrderLineRepository;
+import com.globant.bootcamp.rest.entity.OrderLine;
+import com.globant.bootcamp.rest.repository.OrderLineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

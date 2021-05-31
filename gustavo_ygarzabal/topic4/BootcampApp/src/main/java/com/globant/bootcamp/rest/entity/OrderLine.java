@@ -1,4 +1,4 @@
-package com.globant.bootcamp.entity;
+package com.globant.bootcamp.rest.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

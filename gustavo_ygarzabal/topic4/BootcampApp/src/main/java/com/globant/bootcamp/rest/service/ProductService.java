@@ -1,9 +1,8 @@
-package com.globant.bootcamp.service;
+package com.globant.bootcamp.rest.service;
 
-import com.globant.bootcamp.controller.rest.exception.ProductNotFoundException;
-import com.globant.bootcamp.entity.Product;
-import com.globant.bootcamp.repository.OrderLineRepository;
-import com.globant.bootcamp.repository.ProductRepository;
+import com.globant.bootcamp.rest.exception.ProductNotFoundException;
+import com.globant.bootcamp.rest.entity.Product;
+import com.globant.bootcamp.rest.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,7 @@
-package com.globant.bootcamp.repository;
+package com.globant.bootcamp.rest.repository;
 
-import com.globant.bootcamp.entity.User;
+import com.globant.bootcamp.rest.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

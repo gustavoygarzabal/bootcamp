@@ -1,6 +1,6 @@
-package com.globant.bootcamp.repository;
+package com.globant.bootcamp.rest.repository;
 
-import com.globant.bootcamp.entity.Order;
+import com.globant.bootcamp.rest.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

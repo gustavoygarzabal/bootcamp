@@ -1,15 +1,15 @@
-package com.globant.bootcamp.controller.rest;
+package com.globant.bootcamp.rest.controller;
 
-import com.globant.bootcamp.controller.rest.assembler.OrderModelAssembler;
-import com.globant.bootcamp.controller.rest.exception.OrderNotFoundException;
-import com.globant.bootcamp.controller.rest.exception.UserNotFoundException;
-import com.globant.bootcamp.entity.Order;
-import com.globant.bootcamp.entity.OrderLine;
+import com.globant.bootcamp.rest.assembler.OrderModelAssembler;
+import com.globant.bootcamp.rest.exception.OrderNotFoundException;
+import com.globant.bootcamp.rest.exception.UserNotFoundException;
+import com.globant.bootcamp.rest.entity.Order;
+import com.globant.bootcamp.rest.entity.OrderLine;
 import com.globant.bootcamp.model.enums.OrderStatus;
-import com.globant.bootcamp.repository.OrderRepository;
-import com.globant.bootcamp.repository.UserRepository;
-import com.globant.bootcamp.service.OrderLineService;
-import com.globant.bootcamp.service.ProductService;
+import com.globant.bootcamp.rest.repository.OrderRepository;
+import com.globant.bootcamp.rest.repository.UserRepository;
+import com.globant.bootcamp.rest.service.OrderLineService;
+import com.globant.bootcamp.rest.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;

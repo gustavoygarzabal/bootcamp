@@ -1,9 +1,7 @@
-package com.globant.bootcamp.controller.rest.assembler;
+package com.globant.bootcamp.rest.assembler;
 
-import com.globant.bootcamp.controller.rest.ProductController;
-import com.globant.bootcamp.controller.rest.UserController;
-import com.globant.bootcamp.entity.Product;
-import com.globant.bootcamp.entity.User;
+import com.globant.bootcamp.rest.controller.ProductController;
+import com.globant.bootcamp.rest.entity.Product;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;

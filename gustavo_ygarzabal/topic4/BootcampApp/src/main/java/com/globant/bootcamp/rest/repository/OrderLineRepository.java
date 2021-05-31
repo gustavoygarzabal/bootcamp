@@ -1,7 +1,7 @@
-package com.globant.bootcamp.repository;
+package com.globant.bootcamp.rest.repository;
 
-import com.globant.bootcamp.entity.OrderLine;
-import com.globant.bootcamp.entity.OrderLinePk;
+import com.globant.bootcamp.rest.entity.OrderLine;
+import com.globant.bootcamp.rest.entity.OrderLinePk;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

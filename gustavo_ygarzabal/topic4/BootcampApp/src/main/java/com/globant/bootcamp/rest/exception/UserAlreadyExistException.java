@@ -1,4 +1,4 @@
-package com.globant.bootcamp.controller.rest.exception;
+package com.globant.bootcamp.rest.exception;
 
 public class UserAlreadyExistException extends RuntimeException{
     public UserAlreadyExistException(String email) {

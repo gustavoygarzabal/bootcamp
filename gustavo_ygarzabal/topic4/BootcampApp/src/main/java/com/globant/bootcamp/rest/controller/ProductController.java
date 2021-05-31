@@ -1,8 +1,8 @@
-package com.globant.bootcamp.controller.rest;
+package com.globant.bootcamp.rest.controller;
 
-import com.globant.bootcamp.controller.rest.assembler.ProductModelAssembler;
-import com.globant.bootcamp.entity.Product;
-import com.globant.bootcamp.service.ProductService;
+import com.globant.bootcamp.rest.assembler.ProductModelAssembler;
+import com.globant.bootcamp.rest.entity.Product;
+import com.globant.bootcamp.rest.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;

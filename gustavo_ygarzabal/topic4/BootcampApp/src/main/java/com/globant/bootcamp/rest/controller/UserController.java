@@ -1,10 +1,10 @@
-package com.globant.bootcamp.controller.rest;
+package com.globant.bootcamp.rest.controller;
 
-import com.globant.bootcamp.controller.rest.assembler.UserModelAssembler;
-import com.globant.bootcamp.controller.rest.exception.UserAlreadyExistException;
-import com.globant.bootcamp.controller.rest.exception.UserNotFoundException;
-import com.globant.bootcamp.entity.User;
-import com.globant.bootcamp.repository.UserRepository;
+import com.globant.bootcamp.rest.assembler.UserModelAssembler;
+import com.globant.bootcamp.rest.exception.UserAlreadyExistException;
+import com.globant.bootcamp.rest.exception.UserNotFoundException;
+import com.globant.bootcamp.rest.entity.User;
+import com.globant.bootcamp.rest.repository.UserRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;

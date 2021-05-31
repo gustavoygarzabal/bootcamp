@@ -1,8 +1,8 @@
-package com.globant.bootcamp.controller.rest;
+package com.globant.bootcamp.rest.controller;
 
-import com.globant.bootcamp.controller.rest.exception.ProductNotFoundException;
-import com.globant.bootcamp.controller.rest.exception.UserAlreadyExistException;
-import com.globant.bootcamp.controller.rest.exception.UserNotFoundException;
+import com.globant.bootcamp.rest.exception.ProductNotFoundException;
+import com.globant.bootcamp.rest.exception.UserAlreadyExistException;
+import com.globant.bootcamp.rest.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;

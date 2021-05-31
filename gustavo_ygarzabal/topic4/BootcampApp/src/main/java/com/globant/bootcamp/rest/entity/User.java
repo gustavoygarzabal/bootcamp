@@ -1,7 +1,4 @@
-package com.globant.bootcamp.entity;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.NotNull;
+package com.globant.bootcamp.rest.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

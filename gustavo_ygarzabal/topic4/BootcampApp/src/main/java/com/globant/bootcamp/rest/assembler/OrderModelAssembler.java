@@ -1,7 +1,7 @@
-package com.globant.bootcamp.controller.rest.assembler;
+package com.globant.bootcamp.rest.assembler;
 
-import com.globant.bootcamp.controller.rest.OrderController;
-import com.globant.bootcamp.entity.Order;
+import com.globant.bootcamp.rest.controller.OrderController;
+import com.globant.bootcamp.rest.entity.Order;
 import com.globant.bootcamp.model.enums.OrderStatus;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
