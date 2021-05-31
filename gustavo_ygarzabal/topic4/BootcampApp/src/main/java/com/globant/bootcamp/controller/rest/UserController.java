@@ -1,5 +1,6 @@
 package com.globant.bootcamp.controller.rest;
 
+import com.globant.bootcamp.controller.rest.assembler.UserModelAssembler;
 import com.globant.bootcamp.controller.rest.exception.UserAlreadyExistException;
 import com.globant.bootcamp.controller.rest.exception.UserNotFoundException;
 import com.globant.bootcamp.entity.User;
@@ -21,7 +22,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
     static final Logger logger = Logger.getLogger(UserController.class.getName());
 

@@ -4,12 +4,14 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private Long id;
 
@@ -29,13 +31,35 @@ public class User {
     @Column(name = "role", nullable = false)
     private String role;
 
+    @NotBlank(message = "Password is mandatory")
+    @Column(nullable = false)
+    private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orderList;
+
     public User() {};
 
-    public User(String name, String email, String address, String role) {
+    public User(String name, String email, String address, String role, String password) {
         this.name = name;
         this.email = email;
         this.address = address;
         this.role = role;
+        this.password = password;
+    }
+
+    public void addOrder(Order order) {
+        if(orderList == null) orderList = new ArrayList<>();
+        orderList.add(order);
+        order.setUser(this);
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
