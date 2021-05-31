@@ -60,10 +60,10 @@ public class OrderController {
 
     @PostMapping("/id={id}")
     public ResponseEntity<?> addOrder(@Valid @RequestBody Order newOrder , @PathVariable Long id){
-        if(!userRepository.existsById(id)) throw new UserNotFoundException(id);
 
         newOrder.setOrderStatus(OrderStatus.IN_PROGRESS);
-        newOrder.setUser(userRepository.getById(id));
+        newOrder.setUser(userRepository.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id)));
         Order order = orderRepository.save(newOrder);
 
         return ResponseEntity.created(linkTo(methodOn(OrderController.class).getOrderById(order.getId())).toUri())

@@ -10,6 +10,8 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -27,6 +29,7 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @NotNull(message = "A total is mandatory")
     @Column(nullable = false)
     private Long total;
 
@@ -37,7 +40,7 @@ public class Order {
     @Column(nullable = false)
     private OrderStatus orderStatus;
 
-
+    @NotBlank(message = "A list of product is mandatory")
     @Column(nullable = false)
     private String productList;
 
