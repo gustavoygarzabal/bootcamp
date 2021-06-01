@@ -45,12 +45,12 @@ public class Order {
     @OneToMany(mappedBy = "pk.order")
     private List<OrderLine> productList = new ArrayList<>();
 
-    @Transient
+    @org.springframework.data.annotation.Transient
     public Double getTotalOrderPrice() {
         double sum = 0D;
-        List<OrderLine> orderProducts = getProductList();
-        for (OrderLine op : orderProducts) {
-            sum += op.getTotalPrice();
+        List<OrderLine> orderLines = getProductList();
+        for (OrderLine o : orderLines) {
+            sum += o.getTotalPrice();
         }
         return sum;
     }
@@ -58,6 +58,16 @@ public class Order {
     @Transient
     public int getNumberOfProducts(){
         return this.productList.size();
+    }
+
+    @Transient
+    public int getNumberOfItems(){
+        int sum = 0;
+        List<OrderLine> orderLines = getProductList();
+        for(OrderLine o : orderLines) {
+            sum += o.getQuantity();
+        }
+        return sum;
     }
 
 

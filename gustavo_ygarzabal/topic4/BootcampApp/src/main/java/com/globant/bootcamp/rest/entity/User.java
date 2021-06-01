@@ -1,5 +1,7 @@
 package com.globant.bootcamp.rest.entity;
 
+import com.globant.bootcamp.model.enums.Role;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
@@ -25,9 +27,8 @@ public class User {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @NotBlank(message = "Role is mandatory")
     @Column(name = "role", nullable = false)
-    private String role;
+    private Role role;
 
     @NotBlank(message = "Password is mandatory")
     @Column(nullable = false)
@@ -39,12 +40,16 @@ public class User {
 
     public User() {};
 
-    public User(String name, String email, String address, String role, String password) {
+    public User(String name, String email, String address, String password) {
         this.name = name;
         this.email = email;
         this.address = address;
-        this.role = role;
         this.password = password;
+    }
+
+    @PrePersist
+    public void prePersist(){
+        this.role = Role.USER;
     }
 
     public void addOrder(Order order) {
@@ -93,11 +98,11 @@ public class User {
         this.address = address;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
