@@ -5,7 +5,7 @@ import com.globant.bootcamp.rest.exception.OrderNotFoundException;
 import com.globant.bootcamp.rest.exception.UserNotFoundException;
 import com.globant.bootcamp.rest.entity.Order;
 import com.globant.bootcamp.rest.entity.OrderLine;
-import com.globant.bootcamp.model.enums.OrderStatus;
+import com.globant.bootcamp.enums.OrderStatus;
 import com.globant.bootcamp.rest.repository.OrderRepository;
 import com.globant.bootcamp.rest.repository.UserRepository;
 import com.globant.bootcamp.rest.service.OrderLineService;

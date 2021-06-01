@@ -1,4 +1,4 @@
-package com.globant.bootcamp.model.enums;
+package com.globant.bootcamp.enums;
 
 public enum OrderStatus {
     IN_PROGRESS,

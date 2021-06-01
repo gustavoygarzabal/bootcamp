@@ -1,6 +1,6 @@
 package com.globant.bootcamp.rest.entity;
 
-import com.globant.bootcamp.model.enums.Role;
+import com.globant.bootcamp.enums.Role;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

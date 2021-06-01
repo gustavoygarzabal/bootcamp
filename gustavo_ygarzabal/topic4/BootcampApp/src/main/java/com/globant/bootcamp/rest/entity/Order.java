@@ -3,8 +3,7 @@ package com.globant.bootcamp.rest.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.globant.bootcamp.model.enums.OrderStatus;
+import com.globant.bootcamp.enums.OrderStatus;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -28,8 +27,6 @@ public class Order {
     @NotBlank(message = "A deliver address is necessary")
     private String address;
 
-//    @Column(nullable = false)
-//    private Double total;
 
     @Column(name = "date_order",nullable = false)
     @JsonFormat(pattern="yyy-MM-dd HH:mm:ss")
@@ -41,11 +38,12 @@ public class Order {
 //    @NotBlank(message = "A list of product is mandatory")
 //    @Column(nullable = false)
 
-    @JsonManagedReference
+//  TODO check why it dont let post
+//  @JsonManagedReference
     @OneToMany(mappedBy = "pk.order")
     private List<OrderLine> productList = new ArrayList<>();
 
-    @org.springframework.data.annotation.Transient
+    @Transient
     public Double getTotalOrderPrice() {
         double sum = 0D;
         List<OrderLine> orderLines = getProductList();
@@ -75,14 +73,14 @@ public class Order {
 //Double total,
     public Order(User user, String address ,OrderStatus orderStatus) {
         this.user = user;
-//        this.total = total;
+//       this.total = total;
         this.address = address;
         this.orderStatus = orderStatus;
     }
 
     @PrePersist
     public void prePersist(){
-        orderDate=new Timestamp(new Date().getTime());
+        orderDate = new Timestamp(new Date().getTime());
     }
 
     public Long getId() {
