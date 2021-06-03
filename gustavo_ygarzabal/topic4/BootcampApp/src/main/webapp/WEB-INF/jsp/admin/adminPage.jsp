@@ -14,7 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>Show Users</title>
 </head>
-<body>
+<body >
 <div class="row g-3">
 
     <c:if test="${id==null}">
@@ -23,7 +23,7 @@
     <c:if test="${id!=null}">
         <c:set var="link" scope="session" value="makeUpdate"/>
     </c:if>
-    <form:form class="row g-3" action="${pageContext.request.contextPath}/admin/${link}" modelAttribute="newUser">
+    <form:form class="row g-3 ms-2" action="${pageContext.request.contextPath}/admin/${link}" modelAttribute="newUser">
         <div class="col-auto">
             <label for="id" class="">Id</label>
             <form:input path="id" readonly="true" class="form-control" id="id" placeholder="Id" value="${id}"/>
@@ -46,12 +46,14 @@
         </div>
         <c:if test="${id==null}">
             <div class="col-auto">
+                <p class="label mb-0">Action</p>
                 <a><button type="submit" class="btn btn-primary mb-3">Save</button> </a>
             </div>
         </c:if>
         <c:if test="${id!=null}">
-            <div class="col-auto">
-                <a><button type="submit" class="btn btn-primary mb-3">Accept</button> </a>
+            <div class="col-auto ">
+                <p class="label mb-0">Action</p>
+                <a><button type="submit" class="btn btn-primary">Accept</button> </a>
                 <a href="${pageContext.request.contextPath}/admin"><input  type="button" class="btn btn-primary" value="Cancel"></a>
             </div>
         </c:if>

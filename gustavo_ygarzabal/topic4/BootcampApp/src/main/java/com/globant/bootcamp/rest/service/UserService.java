@@ -29,18 +29,11 @@ public class UserService {
     }
 
     public User updateUserById(Long id, User newUser) {
-//        return userRepository.findById(id).map(user -> {
-//            user.setName(newUser.getName());
-//            user.setAddress(newUser.getAddress());
-//            user.setEmail(newUser.getEmail());
-//            user.setPassword(newUser.getPassword());
-//            return userRepository.save(user);
-//        }).orElse(null);
 
         User userWithThatEmail = userRepository.findOneByEmail(newUser.getEmail()).orElse(null);
 
         if(userWithThatEmail!=null) {
-            if (!userWithThatEmail.getId().equals(newUser.getId())) {
+            if (!userWithThatEmail.getId().equals(id)) {
                 logger.debug("trying to update a user to a already existing email");
                 throw new UserAlreadyExistException(newUser.getEmail());
             }
@@ -62,5 +55,9 @@ public class UserService {
 
     public User save(User user){
         return userRepository.save(user);
+    }
+
+    public boolean existUserByEmail(String email){
+        return userRepository.existsByEmail(email);
     }
 }

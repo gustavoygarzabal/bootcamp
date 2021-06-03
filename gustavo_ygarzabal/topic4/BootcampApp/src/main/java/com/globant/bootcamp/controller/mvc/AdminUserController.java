@@ -2,6 +2,7 @@ package com.globant.bootcamp.controller.mvc;
 
 import com.globant.bootcamp.controller.mvc.dto.UserDto;
 import com.globant.bootcamp.rest.entity.User;
+import com.globant.bootcamp.rest.exception.UserNotFoundException;
 import com.globant.bootcamp.rest.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,7 @@ public class AdminUserController {
 
     @RequestMapping("/makeInsert")
     public String makeInsert(@ModelAttribute("newUser") UserDto user){
+        if(userService.existUserByEmail(user.getEmail())) return "redirect:/admin";
 
         userService.save(new User(
                 user.getName(),
@@ -79,7 +81,9 @@ public class AdminUserController {
                 user.getAddress(),
                 user.getPassword());
         userService.updateUserById(user.getId(), newUser);
+
         return "redirect:/admin";
+
 
     }
 

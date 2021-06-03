@@ -1,4 +1,4 @@
-package config;
+package com.globant.bootcamp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,6 +6,9 @@ import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger.web.OperationsSorter;
+import springfox.documentation.swagger.web.UiConfiguration;
+import springfox.documentation.swagger.web.UiConfigurationBuilder;
 
 @Configuration
 public class SpringFoxConfig {
@@ -15,6 +18,14 @@ public class SpringFoxConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.globant.bootcamp.rest"))
                 .paths(PathSelectors.any())
+                .build();
+    }
+
+    @Bean
+    UiConfiguration uiConfig() {
+        return UiConfigurationBuilder
+                .builder()
+                .operationsSorter(OperationsSorter.METHOD)
                 .build();
     }
 }

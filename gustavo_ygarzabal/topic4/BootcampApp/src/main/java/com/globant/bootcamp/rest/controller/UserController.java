@@ -89,7 +89,7 @@ public class UserController {
         User userWithThatEmail = userRepository.findOneByEmail(newUser.getEmail()).orElse(null);
 
         if(userWithThatEmail!=null) {
-            if (!userWithThatEmail.getId().equals(newUser.getId())) {
+            if (!userWithThatEmail.getId().equals(id)) {
                 logger.debug("trying to update a user to a already existing email");
                 throw new UserAlreadyExistException(newUser.getEmail());
             }
