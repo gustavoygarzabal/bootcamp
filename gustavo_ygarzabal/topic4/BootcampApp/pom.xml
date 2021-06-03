@@ -77,8 +77,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>javax.servlet.jsp.jstl</groupId>
-			<artifactId>jstl-api</artifactId>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
 		<!--		Dependencies for rest-->
@@ -121,6 +121,11 @@
 			<version>3.0.0</version>
 		</dependency>
 
+<!--		webflux for try to consume the rest api-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
 
 	</dependencies>
 
